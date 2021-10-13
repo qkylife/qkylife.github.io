@@ -1,0 +1,87 @@
+.loading-layer{
+    top:0;left: 0;
+    position: fixed;
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    background: #378df0;
+    transition: 1s;
+}
+.centerize-loader{
+    position: absolute;
+    top: 50%;left: 50%;
+    transform: translate(-50%,-50%);
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    z-index: 1000;
+}
+.sick-loading-cube{
+    position: relative;
+    top: -25px;
+    margin: 0 auto;
+    perspective: 500px;
+    width: 100px;
+    height: 100px;
+    /* background-color: #ccc; */
+}
+.sick-loading-cube:hover .cube{
+    transition: 0.4s;
+    box-shadow: 0 0 20px 3px #fff;
+    border: 0.5px solid rgb(255, 255, 255);
+}
+.sick-loading-cube:hover .rotation-of-banana{
+    transition: 0.4s;
+    animation-duration: 2.6s;
+}
+.rotation-of-banana{
+    transform-style: preserve-3d;
+    /* transform: rotateY(45deg); */
+    animation: rotate-banana infinite linear;
+    animation-duration: 5s;
+}
+.platform{
+    width: 100px;
+    height: 100px;
+    border: 5px solid #ffffff;
+    transform: translatey(50px) translateX(0px) rotateX(90deg);
+    /* border-radius: 10px; */
+}
+.cube{
+    transition: 1.2s;
+    border: 0.5px solid #378df0;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: rgb(252, 250, 250);    
+}
+.cube.r{
+    border: 0.5px solid #df4b40;
+}
+/* Well its working atleast... */
+.cube:nth-child(7){
+    transform: translate( 25px, -50px) translateZ(-25px);
+}
+.cube:nth-child(2){
+    transform: translate( 25px, -50px) translateZ(25px);
+}
+.cube:nth-child(3){
+    transform: translate( 25px, -25px) translateZ(0px) rotateX(90deg);
+}
+.cube:nth-child(4){
+    transform: translate( 25px, -75px) translateZ(0px) rotateX(90deg);
+}
+.cube:nth-child(5){
+    transform: translate( 50px, -50px) translateZ(0px) rotateY(90deg);
+}
+.cube:nth-child(6){
+    transform: translate( 0px, -50px) translateZ(0px) rotateY(90deg);
+}
+
+@keyframes rotate-banana {
+    from{
+        transform: rotateY(0deg) translateY(50px);
+    }
+    to{
+        transform: rotateY(360deg) translateY(50px);
+    }
+}
