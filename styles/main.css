@@ -8,3 +8,13 @@
 body {
     background: var(--background-color)
 }
+.hide{
+    display: none;
+}
+.fade-enter-active, .fade-leave-active {
+    transition: 1.5s;
+}
+.fade-enter ,.fade-leave-to {
+    opacity: 0;
+    transform: translate(100%,0);
+}

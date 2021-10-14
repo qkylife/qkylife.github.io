@@ -4,21 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/12.0.4/markdown-it.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/12.0.4/markdown-it.min.js"></script>
     <link rel="stylesheet" href="styles/main.css">
     <script defer src="scripts/functionality.js"></script>
-    <script>setTimeout(function(){window.location = "https://project.qkie.xyz"},5000)</script>
+    <!-- <script>setTimeout(function(){window.location = "https://project.qkie.xyz"},5000)</script> -->
     <title>Qky.life</title>
 </head>
 <body>
-    <div id="main">
+    <div id="processing-stuff">
+        <div class="hide"><center>If you see this probably the css didnt load...</center></div>
         <!-- What if you disabled the script? -->
         <noscript>
         <div class="loading-layer" style="background:#df4b40;z-index: 10000;">
             <div class="centerize-loader" >
-                <center>Why did you disable the script!? This thing need script... or else it doesnt work.</center>
+                <center>For full functionality of this site it is necessary to enable JavaScript.
+                    Here are the <a href="https://www.enable-javascript.com/">
+                    instructions how to enable JavaScript in your web browser</a>.</center>
                 <div class="sick-loading-cube 😎">
                     <div class="rotation-of-banana">
                         <div class="platform"></div>
@@ -26,7 +29,7 @@
                         <div class="cube r"></div>
                         <div class="cube r"></div>
                         <div class="cube r"></div>
-                        <div class="cube r"></div>
+                        <div class="cube r">!</div>
                         <div class="cube r"></div>
                     </div>
                 </div>
@@ -34,9 +37,11 @@
         </div>
         </noscript>
         <!-- What if you have slow internet? -->
-        <div class="loading-layer">
+        <transition name="fade">
+        <div class="loading-layer" v-if="!loading.done">
             <div class="centerize-loader" >
-                <center>Please wait while we redirecting you to my old website... or click <a href="https://project.qkie.xyz">this!</a></center>
+                <center v-if="false">Please wait while we loading the framework</center>
+                <ping-message v-bind:message="loading.message"></ping-message>
                 <div class="sick-loading-cube 😎">
                     <div class="rotation-of-banana">
                         <div class="platform"></div>
@@ -50,6 +55,7 @@
                 </div>
             </div>
         </div>
+        </transition>
     </div>
 </body>
 </html>
